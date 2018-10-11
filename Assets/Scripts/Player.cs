@@ -23,7 +23,6 @@ public class Player : MonoBehaviour {
 
 
         transform.Rotate(0, mouseX*4, 0);
-        print(Camera.main.transform.rotation.eulerAngles.x);
         if (Mathf.Abs(-mouseY*4+Camera.main.transform.rotation.eulerAngles.x) < 60 || Mathf.Abs(-mouseY * 4 + Camera.main.transform.rotation.eulerAngles.x) > 300) {
             Camera.main.transform.Rotate(-mouseY * 4, 0, 0);
         }
