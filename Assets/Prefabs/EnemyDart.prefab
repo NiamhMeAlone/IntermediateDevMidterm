@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4964923781787182}
   - component: {fileID: 54490894927675496}
+  - component: {fileID: 114180716334007878}
   m_Layer: 11
   m_Name: EnemyDart
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,3 +232,14 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 2516435cb38cbd6428469fa1fdc97a90, type: 3}
+--- !u!114 &114180716334007878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201233849418470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694e26c2c48950645bb964357057bcf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

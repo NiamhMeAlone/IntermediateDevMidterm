@@ -9,18 +9,22 @@ public class GameManager : MonoBehaviour {
     public Enemy enemy1, enemy2, enemy3;
     public Player player;
     public bool ended;
-    public Text text;
+    public Text gameText;
+    public Text healthText;
+    public AudioSource source;
 
     private float timer = 3;
 
     private void Start()
     {
         ended = false;
-        text.text = "Mission: eliminate all hostiles and get to evac point.";
-        DontDestroyOnLoad(this);
+        gameText.text = "Mission: eliminate all hostiles and get to evac point.";
+        source.Play();
+        DontDestroyOnLoad(source.gameObject);
     }
 
     void Update () {
+        healthText.text = "Health: " + player.health;
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -29,7 +33,7 @@ public class GameManager : MonoBehaviour {
         {
             if(timer > -5)
             {
-                text.text = "Mission Start!";
+                gameText.text = "Mission Start!";
                 enemy1.alive = true;
                 enemy2.alive = true;
                 enemy3.alive = true;
@@ -38,9 +42,15 @@ public class GameManager : MonoBehaviour {
             }
             else if (!enemy1.alive && !enemy2.alive && !enemy3.alive && timer > -11)
             {
-                text.text = "Main objective complete, return to evac point.";
+                gameText.text = "Main objective complete, return to evac point.";
                 ended = true;
             }
+        }
+        if (player.health <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene("LoseScene");
         }
 	}
 
@@ -48,6 +58,8 @@ public class GameManager : MonoBehaviour {
     {
         if (other.CompareTag("Player") && ended)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("EndScene");
         }
     }

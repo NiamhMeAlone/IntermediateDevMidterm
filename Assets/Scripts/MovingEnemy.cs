@@ -27,7 +27,7 @@ public class MovingEnemy : Enemy {
                 {
                     Ray detectionRay = new Ray(transform.position, transform.forward);
 
-                    float maxRaycastDistance = 1f;
+                    float maxRaycastDistance = 3f;
 
                     // STEP 3: visualize the raycast
                     Debug.DrawRay(detectionRay.origin, detectionRay.direction * maxRaycastDistance, Color.cyan);

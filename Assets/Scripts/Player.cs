@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     public GameObject bullet;
     public GameObject gun;
     public bool mobile;
+    public int health;
     
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -22,7 +23,6 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (mobile)
         {
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 1000f, Color.green);
             float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime;
 
